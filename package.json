@@ -1,0 +1,26 @@
+{
+  "name": "quark_miner",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/init.js",
+  "scripts": {
+    "test": "nodemon src/init.js"
+  },
+  "private": true,
+  "dependencies": {
+    "@ton/core": "^0.60.1",
+    "@ton/crypto": "^3.3.0",
+    "@ton/ton": "^15.2.1",
+    "chalk": "^5.4.1",
+    "dotenv": "^16.4.7",
+    "figlet": "^1.8.0",
+    "pino": "^9.6.0",
+    "pino-pretty": "^13.0.0",
+    "systeminformation": "^5.25.11",
+    "ton-lite-client": "^3.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
