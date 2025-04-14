@@ -12,7 +12,6 @@ export const getUserGivers = async (UUID) => {
     } else {
       logger.error(`Givers not found check UUID`);
       process.exit(1);
-      return null;
     }
   } catch (e) {
     console.log(e);
