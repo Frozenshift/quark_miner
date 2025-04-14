@@ -47,11 +47,11 @@ let bin = ".\\src\\bin\\pow-miner-cuda.exe";
 let givers = await getUserGivers(UUID);
 let gpuVendor = "NVIDIA";
 
-// const userGpu = await getGpu();
-// userGpu.forEach((gpu, index) => {
-//   logger.info(`[${index}] GPU: ${gpu.vendor} (${gpu.model})`);
-//   // gpuVendor = gpu.vendor;
-// });
+const userGpu = await getGpu();
+userGpu.forEach((gpu, index) => {
+  logger.info(`[${index}] GPU: ${gpu.vendor} (${gpu.model})`);
+  gpuVendor = gpu.vendor;
+});
 let gpu = userGpu.length - 1;
 let timeout = 10;
 
