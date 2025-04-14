@@ -45,13 +45,13 @@ if (!UUID) {
 }
 let bin = ".\\src\\bin\\pow-miner-cuda.exe";
 let givers = await getUserGivers(UUID);
-let gpuVendor = null;
+let gpuVendor = "NVIDIA";
 
-const userGpu = await getGpu();
-userGpu.forEach((gpu, index) => {
-  logger.info(`[${index}] GPU: ${gpu.vendor} (${gpu.model})`);
-  gpuVendor = gpu.vendor;
-});
+// const userGpu = await getGpu();
+// userGpu.forEach((gpu, index) => {
+//   logger.info(`[${index}] GPU: ${gpu.vendor} (${gpu.model})`);
+//   // gpuVendor = gpu.vendor;
+// });
 let gpu = userGpu.length - 1;
 let timeout = 10;
 
@@ -67,14 +67,14 @@ if (process.platform === "win32") {
   }
 } else if (process.platform === "linux") {
   if (gpuVendor === "NVIDIA") {
-    bin = ".\\src\\bin\\pow-miner-cuda";
+    bin = "./src/bin/pow-miner-cuda";
     logger.info(`OS: Linux, GPU VENDOR: ${gpuVendor}`);
   } else {
-    bin = ".\\src\\bin\\pow-miner-opencl";
+    bin = "./src/bin/pow-miner-opencl";
     logger.info(`OS: Linux, GPU VENDOR: ${gpuVendor}`);
   }
 } else if (process.platform === "darwin") {
-  bin = ".\\src\\bin\\pow-miner-opencl-macos";
+  bin = "./src/bin/pow-miner-opencl-macos";
   logger.warn(`OS: Mac OS, GPU VENDOR: ${gpuVendor}`);
 } else {
   logger.error("Неизвестная ОС");
