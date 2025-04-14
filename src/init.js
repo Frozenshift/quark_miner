@@ -11,6 +11,7 @@ import { compareVersions, sleep } from "./utils/utils.js";
 
 import { soloGpu } from "./start_solo.js";
 import { updateBestGivers } from "./components/bestGiver.js";
+import { multiGpu } from "./start_multi.js";
 
 dotenv.config({ path: "config.txt" });
 
@@ -95,8 +96,10 @@ try {
 } catch (e) {
   logger.error(e);
 }
-
 if (gpu === 0) {
   logger.info(`Start solo gpu mining`);
   soloGpu(wallet, allowMining, liteClient, timeout, bin, gpu, keyPair, givers);
+} else {
+  logger.info(`Start multi GPU mining: ${gpu + 1}`);
+  multiGpu(wallet, allowMining, liteClient, timeout, bin, gpu, keyPair, givers);
 }
