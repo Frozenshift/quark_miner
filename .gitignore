@@ -1,5 +1,5 @@
 ### Node template
-config.txt
+#config.txt
 # Logs
 logs
 *.log
