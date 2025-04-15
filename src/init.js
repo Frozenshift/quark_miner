@@ -25,9 +25,6 @@ if (!compareVersions(MIN_NODE_VERSION)) {
 
 const UUID = process.env.UUID;
 const GPU_COUNT = process.env.GPU_COUNT;
-console.log(`-------------------`);
-console.log(process.env.UUID, process.env.GPU_COUNT, process.env.GPU_VENDOR);
-console.log(`-------------------`);
 const GPU_VENDOR = process.env.GPU_VENDOR;
 const liteClient = await getLiteClient(
   "https://ton-blockchain.github.io/global.config.json",
@@ -91,8 +88,6 @@ if (process.platform === "win32") {
 } else {
   logger.error("Неизвестная ОС");
 }
-
-console.log(bin, gpu, GPU_COUNT, GPU_VENDOR);
 
 const allowMining = await testMiner(bin, 0, timeout);
 if (allowMining) {
