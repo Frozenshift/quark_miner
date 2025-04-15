@@ -25,6 +25,7 @@ if (!compareVersions(MIN_NODE_VERSION)) {
 
 const UUID = process.env.UUID;
 const GPU_COUNT = process.env.GPU_COUNT;
+console.log(process.env.GPU_COUNT, process.env.GPU_VENDOR);
 const GPU_VENDOR = process.env.GPU_VENDOR;
 const liteClient = await getLiteClient(
   "https://ton-blockchain.github.io/global.config.json",
