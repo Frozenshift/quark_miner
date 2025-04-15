@@ -87,7 +87,7 @@ if (process.platform === "win32") {
   logger.error("Неизвестная ОС");
 }
 
-const allowMining = await testMiner(bin, gpu, timeout);
+const allowMining = await testMiner(bin, 0, timeout);
 if (allowMining) {
   logger.info(`Miner status: OK`);
 } else {
