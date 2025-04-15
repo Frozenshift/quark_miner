@@ -5,5 +5,7 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 nvm install node
 wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.0g-2ubuntu4_amd64.deb
-sudo dpkg -i libssl1.1_1.1.0g-2ubuntu4_amd64.deb
+dpkg -i libssl1.1_1.1.0g-2ubuntu4_amd64.deb
+curl -O http://security.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.22_amd64.deb
+dpkg -i libssl1.1_1.1.1f-1ubuntu2.22_amd64.deb
 source ~/.bashrc
