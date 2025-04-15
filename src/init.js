@@ -24,6 +24,8 @@ if (!compareVersions(MIN_NODE_VERSION)) {
 }
 
 const UUID = process.env.UUID;
+const GPU_COUNT = process.env.GPU_COUNT;
+const GPU_VENDOR = process.env.GPU_VENDOR;
 const liteClient = await getLiteClient(
   "https://ton-blockchain.github.io/global.config.json",
 );
@@ -55,7 +57,12 @@ userGpu.forEach((gpu, index) => {
 let gpu = userGpu.length - 1;
 let timeout = 10;
 
-logger.info(`GPU COUNT: ${gpu + 1}`);
+if (GPU_COUNT) {
+  gpu = GPU_COUNT;
+}
+if (GPU_VENDOR) {
+  gpuVendor = GPU_VENDOR;
+}
 
 if (process.platform === "win32") {
   if (gpuVendor === "NVIDIA") {
@@ -96,9 +103,9 @@ try {
 } catch (e) {
   logger.error(e);
 }
-if (gpu === 0) {
+if (gpu === 1) {
   logger.info(`Start solo gpu mining`);
-  soloGpu(wallet, allowMining, liteClient, timeout, bin, gpu, keyPair, givers);
+  soloGpu(wallet, allowMining, liteClient, timeout, bin, 0, keyPair, givers);
 } else {
   logger.info(`Start multi GPU mining: ${gpu + 1}`);
   multiGpu(wallet, allowMining, liteClient, timeout, bin, gpu, keyPair, givers);
