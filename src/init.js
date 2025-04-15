@@ -58,11 +58,9 @@ let gpu = userGpu.length - 1;
 let timeout = 10;
 
 if (GPU__COUNT) {
-  console.log(GPU__COUNT);
   gpu = GPU__COUNT;
 }
 if (GPU__VENDOR) {
-  console.log(GPU__VENDOR);
   gpuVendor = GPU__VENDOR;
 }
 
