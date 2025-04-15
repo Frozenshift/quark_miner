@@ -87,7 +87,7 @@ if (process.platform === "win32") {
   logger.error("Неизвестная ОС");
 }
 
-console.log(bin);
+console.log(bin, gpu, GPU_COUNT, GPU_VENDOR);
 
 const allowMining = await testMiner(bin, 0, timeout);
 if (allowMining) {
