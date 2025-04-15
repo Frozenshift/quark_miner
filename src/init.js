@@ -87,6 +87,8 @@ if (process.platform === "win32") {
   logger.error("Неизвестная ОС");
 }
 
+console.log(bin);
+
 const allowMining = await testMiner(bin, 0, timeout);
 if (allowMining) {
   logger.info(`Miner status: OK`);
@@ -107,6 +109,6 @@ if (gpu === 1) {
   logger.info(`Start solo gpu mining`);
   soloGpu(wallet, allowMining, liteClient, timeout, bin, 0, keyPair, givers);
 } else {
-  logger.info(`Start multi GPU mining: ${gpu + 1}`);
+  logger.info(`Start multi GPU mining: ${gpu}`);
   multiGpu(wallet, allowMining, liteClient, timeout, bin, gpu, keyPair, givers);
 }
