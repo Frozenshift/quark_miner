@@ -91,7 +91,7 @@ const allowMining = await testMiner(bin, 0, timeout);
 if (allowMining) {
   logger.info(`Miner status: OK`);
 } else {
-  logger.error(`Miner status: ERROR`);
+  logger.error(`Miner status: ERROR ${bin}, ${gpuVendor}, ${gpu}`);
 }
 
 try {
@@ -103,7 +103,7 @@ try {
 } catch (e) {
   logger.error(e);
 }
-if (gpu === 1) {
+if (gpu == 1) {
   logger.info(`Start solo gpu mining`);
   soloGpu(wallet, allowMining, liteClient, timeout, bin, 0, keyPair, givers);
 } else {
