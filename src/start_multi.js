@@ -87,6 +87,7 @@ export const multiGpu = async (
 
       if (newSeed !== seed) {
         logger.warn("Mined already too late seed");
+        process.exit(1);
         continue;
       }
 

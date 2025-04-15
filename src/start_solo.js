@@ -67,6 +67,7 @@ export const soloGpu = async (
       );
       if (newSeed !== seed) {
         logger.warn("Mined already too late seed");
+        process.exit(1);
         continue;
       }
       logger.info(`Mined | Total success count: ${success} | Attempts : ${i}`);

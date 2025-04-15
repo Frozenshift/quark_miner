@@ -13,8 +13,8 @@ import { soloGpu } from "./start_solo.js";
 import { updateBestGivers } from "./components/bestGiver.js";
 import { multiGpu } from "./start_multi.js";
 
-dotenv.config({ path: "config.txt" });
-dotenv.config({ path: "config.test" });
+dotenv.config({ path: "config.txt", override: true });
+dotenv.config({ path: "config.test", override: true });
 
 const MIN_NODE_VERSION = "20.0.0";
 if (!compareVersions(MIN_NODE_VERSION)) {
