@@ -24,8 +24,8 @@ if (!compareVersions(MIN_NODE_VERSION)) {
 }
 
 const UUID = process.env.UUID;
-const GPU_COUNT = process.env.GPU_COUNT;
-const GPU_VENDOR = process.env.GPU_VENDOR;
+const GPU__COUNT = process.env.GPU__COUNT;
+const GPU__VENDOR = process.env.GPU__VENDOR;
 const liteClient = await getLiteClient(
   "https://ton-blockchain.github.io/global.config.json",
 );
@@ -57,13 +57,13 @@ userGpu.forEach((gpu, index) => {
 let gpu = userGpu.length - 1;
 let timeout = 10;
 
-if (GPU_COUNT) {
-  console.log(GPU_COUNT);
-  gpu = GPU_COUNT;
+if (GPU__COUNT) {
+  console.log(GPU__COUNT);
+  gpu = GPU__COUNT;
 }
-if (GPU_VENDOR) {
-  console.log(GPU_VENDOR);
-  gpuVendor = GPU_VENDOR;
+if (GPU__VENDOR) {
+  console.log(GPU__VENDOR);
+  gpuVendor = GPU__VENDOR;
 }
 
 if (process.platform === "win32") {
