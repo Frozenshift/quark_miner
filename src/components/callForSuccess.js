@@ -20,5 +20,6 @@ export async function CallForSuccess(toCall, attempts = 20, delayMs = 100) {
   }
 
   console.log("error after attempts", i);
+  process.exit(1);
   throw lastError;
 }
